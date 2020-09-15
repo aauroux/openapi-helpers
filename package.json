@@ -9,8 +9,8 @@
         "build": "webpack --mode development"
     },
     "keywords": [
-        "node",
-        "openapi"
+        "openapi",
+        "helpers"
     ],
     "license": "MIT",
     "dependencies": {
