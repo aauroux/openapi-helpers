@@ -1,6 +1,6 @@
 # Openapi Helpers
 
-> This an early prototype :)
+**This an early prototype :)**
 
 This package contains some helper functions to handle openapi 3 json file.
 
@@ -13,7 +13,7 @@ npm install openapi-helpers
 ```
 
 ## Project Structure
-    .
+
     ├── ...
     ├── src
     │   ├── docs                # Your *.md files
@@ -23,6 +23,18 @@ npm install openapi-helpers
     │   │   └── info.js         # Base json file
     │   └── ...
     └── ...
+
+## Create the json specs file
+
+```js
+import { writeFileSync } from 'fs'
+import { compile } from 'openapi-helpers'
+
+const json = compile('./src') // Compile 'src' folder
+
+// Optionaly save json file
+writeFileSync('./api.json', JSON.stringify(json), 'utf8')
+```
 
 ## Examples
 
@@ -103,18 +115,6 @@ export const User = object({
         self: string('/users/3fa85f64-5717-4562-b3fc-2c963f66afa6'),
     }),
 })
-```
-
-## Create the json specs file
-
-```js
-import { writeFileSync } from 'fs'
-import { compile } from 'openapi-helpers'
-
-const json = compile('./src') // Compile 'src' folder
-
-// Optionaly save json file
-writeFileSync('./api.json', JSON.stringify(json), 'utf8')
 ```
 
 ## License
