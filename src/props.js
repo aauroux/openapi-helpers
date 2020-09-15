@@ -39,6 +39,18 @@ export const email = () =>
  *
  * @returns {{format: string, type: string}}
  */
+export const password = () =>
+{
+    return {
+        type: 'string',
+        format: 'password',
+    }
+}
+
+/**
+ *
+ * @returns {{format: string, type: string}}
+ */
 export const datetime = (example = undefined) =>
 {
     return {

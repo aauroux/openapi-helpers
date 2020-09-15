@@ -1,6 +1,6 @@
 import endpoint from './src/endpoint'
 import compile from './src/compile'
-import { string, uuid, email, datetime, list, integer, number, bool, object, array, ref } from './src/props'
+import { string, uuid, email, datetime, list, integer, number, bool, object, array, ref, password } from './src/props'
 import { describe, demonstrate } from './src/functions'
 import { body, response, parameter } from './src/schemas'
 
@@ -23,4 +23,5 @@ export {
     body,
     response,
     parameter,
+    password,
 }
