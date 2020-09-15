@@ -1,6 +1,6 @@
 {
     "name": "openapi-helpers",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "This package contains some helper functions to handle openapi 3 json file.",
     "author": "Adrien Auroux",
     "main": "dist/index.js",
