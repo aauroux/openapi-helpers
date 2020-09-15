@@ -3,4 +3,5 @@
 /.babelrc
 /.babelrc
 /index.js
+/node_modules
 /webpack.config.js
