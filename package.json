@@ -1,0 +1,25 @@
+{
+    "name": "openapi-helpers",
+    "version": "0.0.1",
+    "description": "This package contains some helper functions to handle openapi 3 json file.",
+    "author": "Adrien Auroux",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "webpack --watch",
+        "build": "webpack --mode development"
+    },
+    "keywords": [
+        "node",
+        "openapi"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "babel-loader": "^8.1.0",
+        "lodash": "^4.17.20",
+        "nodemon": "^2.0.4",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    }
+}
