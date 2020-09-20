@@ -103,6 +103,20 @@ export const number = (example = undefined) =>
 }
 
 /**
+ * Binary
+ *
+ * @param example
+ * @returns {{type: string, example: *}}
+ */
+export const binary = (example = undefined) =>
+{
+    return {
+        type: 'binary',
+        example,
+    }
+}
+
+/**
  * Integer
  *
  * @param example
@@ -168,9 +182,10 @@ export const array = (items, example = undefined) =>
  * @param target
  * @returns {{$ref: *}}
  */
-export const ref = (target) =>
+export const ref = (target, nullable = false) =>
 {
     return {
         $ref: target,
+        nullable,
     }
 }
