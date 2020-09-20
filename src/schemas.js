@@ -18,6 +18,24 @@ export const body = (schema, required = true) =>
 
 /**
  *
+ * @param schema
+ * @param required
+ * @returns {{required: boolean, content: {'multipart/form-data': {schema: *}}}}
+ */
+export const form = (schema, required = true) =>
+{
+    return {
+        required,
+        content: {
+            'multipart/form-data': {
+                schema,
+            },
+        },
+    }
+}
+
+/**
+ *
  * @param description
  * @param schema
  * @returns {{description: *}}
