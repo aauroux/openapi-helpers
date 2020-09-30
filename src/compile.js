@@ -1,4 +1,4 @@
-import { merge, set } from 'lodash'
+import { merge, set, isElement, cloneDeepWith } from 'lodash'
 import path from 'path'
 import { lstatSync, readdirSync, readFileSync } from 'fs'
 
@@ -85,20 +85,21 @@ export default (base) =>
     /**
      * Parse markdown
      * --------------------------------------------------------------------------------- */
-    let m
-    const regex = /"(\w+)\.md"/gm
-    let strJson = JSON.stringify(api)
-    while ( (m = regex.exec(strJson)) !== null )
+    api = cloneDeepWith(api, (value) =>
     {
-        // This is necessary to avoid infinite loops with zero-width matches
-        if ( m.index === regex.lastIndex ) regex.lastIndex++
+        if (
+            typeof value !== 'undefined'
+            && value !== null
+            && typeof value.match === 'function'
+            && value.match(/^(\w+)\.md$/) !== null
+        )
+        {
+            const p = `${base}/docs/${value}`
+            return readFileSync(p, 'utf8')
+        }
 
-        const p = `${base}/docs/${m[1]}.md`
-        const contents = readFileSync(p, 'utf8')
+        if ( isElement(value) ) return value.cloneNode(true)
+    })
 
-        // Fix line breaks
-        strJson = strJson.replace(new RegExp(m[0], 'gm'), `"${contents.replace(/\r\n/gm, '\\r\\n')}"`)
-    }
-
-    return JSON.parse(strJson)
+    return api
 }
